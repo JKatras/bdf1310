@@ -10,7 +10,7 @@
 	$db_pass = "root";
 	$db = new \PDO($dsn, $db_user, $db_pass);
 	$statement = $db->prepare("
-		SELECT firstname, lastname, Name
+		SELECT firstname, lastname
 		FROM users
 	");
 	if($statement->execute()) {
