@@ -1,27 +1,35 @@
 <?php  
-include 'DB.php';
-class usersModel extends DB{
-	public function construct() {
-		
+//include 'models/DB.php';
+class charModel{
+
+private $db;
+
+public function _construct($dsn, $user, $pass) {
+	try {
+		$this->db = new \PDO($dsn, $user, $pass);
 	}
-	
-	public function getAll() {
-		$sql = "select * from users";
-		$st = $this->db->prepare($sql);
-		$st->execute();
-		
-		return $st->fetchAll();
-		
-	}
-	
-	public function getOne($id=0) {
-		$sql = "select * from userStatus where userId = :id";
-		$st = $this->db->prepare($sql);
-		$st->execute(array(":id"=>$id));
-		
-		return $st->fetchAll();
+	catch (\PDOException $e) {
+		var_dump($e);
 	}
 }
+	
+public function getRegions() {
+	$statement = $this->db->prepare("
+		SELECT name
+		FROM regions
+	");
+	try {
+		if($statement->execute()) {
+			$rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
+			return $rows;	
+		}
+	}
+	catch (\PDOException $e) {
+		echo "There was an error; please try again later";
+		var_dump($e);
+	}
+	return array();
+}
 
-
+}
 ?>
