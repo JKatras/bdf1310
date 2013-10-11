@@ -2,7 +2,7 @@
 include 'models/DB.php';
 class charModel extends DB{
 
-//private $db;
+//$db = new DB();
 
 //public function _construct($dsn, $user, $pass) {
 //	try {
@@ -13,15 +13,21 @@ class charModel extends DB{
 //	}
 //}
 	
-public function _construct() {
-	
-}
+//public function _construct() {
+//	
+//}
+
+
 
 public function getRegions() {
-	$statement = $this->db->prepare("
+	$db = new DB();
+	$statement = $db->db->prepare("
 		SELECT name
 		FROM regions
 	");
+	var_dump($db);
+
+
 	try {
 		if($statement->execute()) {
 			$rows = $statement->fetchAll(\PDO::FETCH_ASSOC);

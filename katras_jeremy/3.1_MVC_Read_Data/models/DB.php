@@ -10,7 +10,8 @@ class DB{
 		$user = "root";
 		$pass = "root";
 		
-		$this->db = new PDO($dsn, $user, $pass);
+		return new PDO($dsn, $user, $pass);
+		
 		}
 		catch (PDOException $e) {
 			var_dump($e);
