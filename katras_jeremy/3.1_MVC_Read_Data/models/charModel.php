@@ -1,18 +1,22 @@
 <?php  
-//include 'models/DB.php';
-class charModel{
+include 'models/DB.php';
+class charModel extends DB{
 
-private $db;
+//private $db;
 
-public function _construct($dsn, $user, $pass) {
-	try {
-		$this->db = new \PDO($dsn, $user, $pass);
-	}
-	catch (\PDOException $e) {
-		var_dump($e);
-	}
-}
+//public function _construct($dsn, $user, $pass) {
+//	try {
+//		$this->db = new \PDO($dsn, $user, $pass);
+//	}
+//	catch (\PDOException $e) {
+//		var_dump($e);
+//	}
+//}
 	
+public function _construct() {
+	
+}
+
 public function getRegions() {
 	$statement = $this->db->prepare("
 		SELECT name

@@ -6,8 +6,8 @@
 <h2>Characters by Region</h2>
 <p>Click a region to view which characters originated there.</p>
 <?php
-require_once "models/DB.php";
-require_once "models/charModel.php";
+//include "models/DB.php";
+require "models/charModel.php";
 $model = new charModel(MY_DSN, MY_USER, MY_PASS);
 $rows = $model->getRegions();
 foreach ($rows as $num => $row) {
