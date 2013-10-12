@@ -9,7 +9,7 @@ public function __construct() {
 public function getRegions() {
 	$db = new DB();
 	$statement = $db->db->prepare("
-		SELECT name
+		SELECT name, regionId
 		FROM regions
 	");
 	try {
@@ -25,17 +25,17 @@ public function getRegions() {
 	return array();
 }
 
-public function getCharDetails($id=0) {
+public function getCharDetails($id) {
 	$db = new DB();
 	$statement = $db->db->prepare("
 		SELECT charName, house
 		FROM gotChar
-		WHERE region = :id
+		WHERE region = :regionId
 	");
 	try {
-		if($statement->execute(array(":id"=>$id))) {
-			$rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
-			return $rows;	
+		if($statement->execute(array(":regionId"=>$id))) {
+			$result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+			return $result;	
 		}
 	}
 	catch (\PDOException $e) {

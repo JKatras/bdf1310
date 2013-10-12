@@ -1,11 +1,9 @@
+<h2>Characters by Region</h2>
+<p>Click a region to view which characters originated there.</p>
+
 <?php
-echo "<center>";
-foreach ($data as $d) {
-	echo $d["firstname"];
-	echo "";
-	echo $d["last"];
-	echo " <a href=?action=details&id=".$d["id"}.">details</a>";
-	echo "<br>";
+foreach ($rows as $num => $row) {
+		echo "<li><h3><a href=?action=details&id=${row['regionId']}>${row['name']}</a></h3></li>";
 }
-echo "</center>";
+
 ?>

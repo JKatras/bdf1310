@@ -1,2 +1,4 @@
-<a href="index.php">Home</a>
-<p>2013, A Site of Ice &amp; Fire</p>
+<p><a href="index.php">Home</a>  2013, A Site of Ice &amp; Fire</p>
+
+</body>
+</html>
