@@ -15,7 +15,7 @@ if(!empty($_GET["action"])){
 	
 	if($_GET["action"]=="details"){
 		$result = $model->getCharDetails($_GET["id"]);
-		$view->detailView($result);
+		$view->detailView("views/regionDetails.php", $result);
 	}
 }
 ?>

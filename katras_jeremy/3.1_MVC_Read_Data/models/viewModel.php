@@ -7,8 +7,9 @@ class viewModel{
 	public function regionListView($rows) {
 		include 'views/body.php';
 	}
-	public function detailView($result) {
-		include 'views/regionDetails.php';
+	public function detailView($pagename='', $data=array()) {
+		include $pagename;
+//		include 'views/regionDetails.php';
 	}
 	public function footerView() {
 		include 'views/footer.inc';

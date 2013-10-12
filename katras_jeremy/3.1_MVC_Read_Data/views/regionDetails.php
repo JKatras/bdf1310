@@ -1,12 +1,9 @@
 <?php  
 
-foreach ($result as $num=> $row) {
-//	echo <h2>Characters from ".$num."</h2>
-//	echo "<li><h3><a href=?action=details&id=".$num["regionId"].">${row['name']}</a></h3></li>";
-	echo $num[""];
+foreach ($data as $d) {
+	echo "<h4>${d['charName']}</h4>";
 	echo "";
-	echo $num[""];
+	echo "<p>House Allegiance: ${d['house']}</p>";
 	}
-//
-
+	
 ?>
