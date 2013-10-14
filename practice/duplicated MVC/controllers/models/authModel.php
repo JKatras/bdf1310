@@ -12,7 +12,7 @@ class authModel{
 			SELECT userId AS id, username AS name
 			FROM users
 			WHERE (username = :name)
-				AND (password = :pass)
+				AND (password = MD5(CONCAT(user_salt,:pass)))
 		");
 		try {
 			if($statement->execute(array(':name' => $name, ':pass' => $pass))) {

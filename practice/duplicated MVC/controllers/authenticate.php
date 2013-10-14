@@ -12,11 +12,15 @@ $password = empty($_POST['password']) ? '' : trim($_POST['password']);
 
 $display = 'loginForm.php';
 
+if (!empty($_SESSION['userinfo'])) {
+	$display = 'loginSuccess.php';
+}
+
 if(!empty($username) && !empty($password)) {
 	$user = $model->checkLogin($username, $password);
 	
 	if (is_array($user)) {
-		echo 'Login Successful'; //placeholder
+		$display = 'loginSuccess.php';
 		
 		$_SESSION['userInfo'] = $user;
 	}
