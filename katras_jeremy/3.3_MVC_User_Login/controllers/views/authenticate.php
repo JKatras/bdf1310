@@ -23,6 +23,8 @@ if(!empty($username) && !empty($password)) {
 		$display = 'loginSuccess.php';
 		
 		$_SESSION['userInfo'] = $user;
+	}else {
+		echo '<b><p>Please check your login information and try again.</p></b>';
 	}
 }
 

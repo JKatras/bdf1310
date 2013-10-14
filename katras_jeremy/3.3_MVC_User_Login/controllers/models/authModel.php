@@ -28,5 +28,12 @@ class authModel{
 		}
 		return FALSE;
 	} //checkLogin
+	
+	public function logout() {
+		session_start();
+		unset($_SESSION['userInfo']);
+		header('Location: ../views/authorization.php');
+		exit;
+	}
 }
 ?>
