@@ -2,10 +2,10 @@
 
 include 'models/DB.php';
 include 'models/authModel.php';
-include 'models/authView.php';
+include 'models/viewModel.php';
 
 $model = new authModel();
-$view = new authView();
+$view = new viewModel();
 
 $view->headerView('');
 $view->formView();

@@ -14,6 +14,9 @@ class viewModel{
 	public function footerView() {
 		include 'views/footer.inc';
 	}
+	public function formView() {
+		include 'views/loginForm.php';
+	}
 }
 
 ?>
