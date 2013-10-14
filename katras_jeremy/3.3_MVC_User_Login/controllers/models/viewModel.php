@@ -12,10 +12,6 @@ class viewModel{
 			include $filePath;
 		}	
 	}
-	
-	public function loginView() {
-		include 'views/authenticate.php';
-	}
 }
 
 ?>
