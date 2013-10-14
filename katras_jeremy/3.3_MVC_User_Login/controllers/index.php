@@ -1,7 +1,4 @@
 <?php
-//<!--<link rel="stylesheet" href="css/main.css" type="text/css" />-->
-//
-//ob_start();
 
 include "models/regionModel.php";
 include "models/viewModel.php";
