@@ -7,15 +7,20 @@ $model = new regionModel();
 $rows = $model->getRegions();
 $view = new viewModel();
 
+$view->show('header.inc');
+
 if(!empty($_GET["action"])){
 	
 	if($_GET["action"]=="details"){
 		$result = $model->getCharDetails($_GET["id"]);
 		$view->show("regionDetails.php", $result);
 	}
+	if($_GET["action"]=="login"){
+		$view->loginView();
+	}
 }else {
-	$view->show('header.inc');
 	$view->regionListView($rows);
-	$view->show('footer.inc');
 }
+
+$view->show('footer.inc');
 ?>

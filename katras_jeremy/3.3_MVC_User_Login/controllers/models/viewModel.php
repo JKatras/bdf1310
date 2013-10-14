@@ -4,9 +4,6 @@ class viewModel{
 	public function regionListView($rows) {
 		include 'views/body.php';
 	}
-//	public function detailView($pagename='', $data=array()) {
-//		include $pagename;
-//	}
 
 	public function show($file='', $data=array()) {
 		$filePath = 'views/'.$file;
@@ -14,6 +11,10 @@ class viewModel{
 		if (file_exists($filePath)) {
 			include $filePath;
 		}	
+	}
+	
+	public function loginView() {
+		include '/authenticate.php';
 	}
 }
 
