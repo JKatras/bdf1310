@@ -6,20 +6,17 @@ include "models/viewModel.php";
 $model = new regionModel();
 $rows = $model->getRegions();
 $view = new viewModel();
-//$view->headerView('');
-//$view->regionListView($rows);
-//$view->footerview();
-
 
 if(!empty($_GET["action"])){
 	
 	if($_GET["action"]=="details"){
 		$result = $model->getCharDetails($_GET["id"]);
-		$view->detailView("views/regionDetails.php", $result);
+//		$view->detailView("views/regionDetails.php", $result);
+		$view->show("regionDetails.php", $result);
 	}
 }else {
-	$view->headerView('');
+	$view->show('header.inc');
 	$view->regionListView($rows);
-	$view->footerview();
+	$view->show('footer.inc');
 }
 ?>
