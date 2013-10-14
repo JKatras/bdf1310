@@ -14,6 +14,13 @@ class viewModel{
 	public function footerView() {
 		include 'views/footer.inc';
 	}
+	public function show($file) {
+		$filePath = 'views/'.$file;
+		
+		if (file_exists($filePath)) {
+			include $filePath;
+		}	
+	}
 }
 
 ?>
