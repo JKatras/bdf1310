@@ -1,5 +1,5 @@
 <?php  
-
+session_start();
 include 'models/DB.php';
 include 'models/authModel.php';
 include 'models/viewModel.php';
@@ -16,8 +16,9 @@ if(!empty($username) && !empty($password)) {
 	$user = $model->checkLogin($username, $password);
 	
 	if (is_array($user)) {
-		
 		echo 'Login Successful'; //placeholder
+		
+		$_SESSION['userInfo'] = $user;
 	}
 }
 
