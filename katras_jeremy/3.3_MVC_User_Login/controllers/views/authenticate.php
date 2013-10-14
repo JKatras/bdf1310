@@ -1,9 +1,8 @@
-<?php  
-session_start();
+<?php
 ob_start();
-//include 'models/DB.php';
+session_start();
+
 include 'models/authModel.php';
-//include 'models/viewModel.php';
 
 $model = new authModel();
 $view = new viewModel();
