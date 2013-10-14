@@ -6,9 +6,6 @@ include "models/viewModel.php";
 $model = new regionModel();
 $rows = $model->getRegions();
 $view = new viewModel();
-//$view->headerView('');
-//$view->regionListView($rows);
-//$view->footerview();
 
 
 if(!empty($_GET["action"])){
