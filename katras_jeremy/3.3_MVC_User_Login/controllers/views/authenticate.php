@@ -26,9 +26,6 @@ if(!empty($username) && !empty($password)) {
 	}
 }
 
-
-$view->headerView('');
 $view->show($display);
-$view->footerview();
 
 ?>

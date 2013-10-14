@@ -14,7 +14,7 @@ class viewModel{
 	}
 	
 	public function loginView() {
-		include '/authenticate.php';
+		include 'views/authenticate.php';
 	}
 }
 
