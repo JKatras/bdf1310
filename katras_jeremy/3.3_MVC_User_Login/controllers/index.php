@@ -16,7 +16,7 @@ if(!empty($_GET["action"])){
 		$view->show("regionDetails.php", $result);
 	}
 	if($_GET["action"]=="login"){
-		$view->loginView();
+		$view->show("authenticate.php");
 	}
 }else {
 	$view->regionListView($rows);
