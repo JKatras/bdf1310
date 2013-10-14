@@ -8,16 +8,22 @@ $model = new authModel();
 $view = new viewModel();
 
 $username = empty($_POST['username']) ? '' : trim($_POST['username']);
-$username = empty($_POST['password']) ? '' : trim($_POST['password']);
+$password = empty($_POST['password']) ? '' : trim($_POST['password']);
+
+$display = 'loginForm.php';
 
 if(!empty($username) && !empty($password)) {
 	$user = $model->checkLogin($username, $password);
-
+	
+	if (is_array($user)) {
+		
+		echo 'Login Successful'; //placeholder
+	}
 }
 
 
 $view->headerView('');
-$view->formView();
+$view->show($display);
 $view->footerview();
 
 ?>

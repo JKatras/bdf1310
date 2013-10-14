@@ -17,6 +17,13 @@ class viewModel{
 	public function formView() {
 		include 'views/loginForm.php';
 	}
+	public function show($file) {
+		$filePath = 'views/'.$file;
+		
+		if (file_exists($filePath)) {
+			include $filePath;
+		}	
+	}
 }
 
 ?>
