@@ -10,4 +10,5 @@
 			<br />
 		<input type="submit" value="Login" />
 		</form>';
+	$auth = new authModel();
 ?>

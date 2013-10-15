@@ -32,7 +32,7 @@ class authModel{
 	public function logout() {
 		session_start();
 		unset($_SESSION['userInfo']);
-		header('Location: ../views/authorization.php');
+		header('Location: ../controllers/views/authenticate.php');
 		exit;
 	}
 }
