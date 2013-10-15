@@ -12,16 +12,10 @@ html, body, div, span, applet, object, iframe,
 body {
 	list-style: none;
 	text-align: center;
-	/*background-image: url('images/brick.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;*/
 	background: #f5d55f url('images/brick.jpg') left top no-repeat;
 }
-/*body {
-	opacity: .8;
-}*/
 
-body a {
+body a, header a {
 	
 	color: white;
 	stroke: 0.25px;
@@ -38,6 +32,7 @@ header {
 	padding: 25px 0 5px;
 	height: 140%;
 	color: #d3a7a7;
+	border-bottom: 1px solid #333;
 }
 
 h1 {
