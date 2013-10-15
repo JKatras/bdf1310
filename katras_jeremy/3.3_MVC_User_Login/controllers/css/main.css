@@ -8,7 +8,24 @@ html, body, div, span, applet, object, iframe,
 	font-size: 100%;
 	vertical-align: baseline;
 }
+
 body {
 	list-style: none;
 	text-align: center;
+	/*background-image: url('images/brick.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;*/
+	background: url('images/brick.jpg') no-repeat left top;
+}
+
+body a {
+	color: white;
+	stroke: 0.25px;
+	box-shadow: 0 0 1px #b3b1b1;
+	text-decoration: none;
+}
+
+header {
+	background-color: #dedddd;
+	margin: 0;	
 }
