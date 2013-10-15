@@ -29,11 +29,11 @@ class authModel{
 		return FALSE;
 	} //checkLogin
 	
-	public function logout() {
-		session_start();
-		unset($_SESSION['userInfo']);
-		header('Location: ../controllers/views/authenticate.php');
-		exit;
-	}
+//	public function logout() {
+//		session_start();
+//		unset($_SESSION['userInfo']);
+//		header('Location: ../controllers/views/authenticate.php');
+//		exit;
+//	}
 }
 ?>

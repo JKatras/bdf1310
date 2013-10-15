@@ -4,7 +4,6 @@ session_start();
 
 include 'models/authModel.php';
 
-
 $model = new authModel();
 $view = new viewModel();
 
