@@ -9,4 +9,4 @@
 	<h1><a href="index.php">A Site of Ice and Fire</a></h1>	
 </header>
 <body>
-<div id="wrapper"></div>
+<div id="wrapper">

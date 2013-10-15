@@ -9,30 +9,30 @@ html, body, div, span, applet, object, iframe,
 	vertical-align: baseline;
 }
 
+header {
+	background: rgba(97, 141, 216, 0.9);
+	padding: 25px 0;
+	/*height: 140%;*/
+	color: #d3a7a7;
+	border-bottom: 1px solid #333;
+	margin: 0;
+}
+
 body {
 	list-style: none;
 	text-align: center;
-	background: #f5d55f url('images/brick.jpg') left top no-repeat;
+	/*background: #f5d55f url('images/brick.jpg') left top no-repeat;*/
 }
 
 body a, header a {
-	
 	color: white;
-	stroke: 0.25px;
+	stroke: 0.75px;
 	text-decoration: none;
 	padding: 0;
 }
 
 a:hover {
 	text-shadow: 0 0 2px #524f4f;
-}
-
-header {
-	background: rgba(97, 141, 216, 0.9);
-	padding: 25px 0 5px;
-	height: 140%;
-	color: #d3a7a7;
-	border-bottom: 1px solid #333;
 }
 
 h1 {
@@ -42,4 +42,12 @@ h1 {
 
 body h2, h3, p {
 	color: #fbf8c8;
+}
+
+#wrapper {
+	padding: 0;
+	margin: 0 auto 0;
+	width: 750px;
+	background: url('images/brick.jpg') left top no-repeat;
+	background-size: 100%;
 }
