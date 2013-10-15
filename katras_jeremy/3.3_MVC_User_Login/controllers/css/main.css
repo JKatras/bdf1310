@@ -24,8 +24,8 @@ body {
 	background-color: #535252;
 }
 
-body a, header a {
-	color: white;
+body a, header a, #wrapper h3 {
+	color: #ededed;
 	stroke: 0.75px #333;
 	text-decoration: none;
 	padding: 0;
@@ -40,7 +40,7 @@ h1 {
 	font-family: "Trajan Pro", "Times New Roman", Times, serif;
 }
 
-body h2, h3, p {
+body h2, h3, h4, p {
 	color: #424040;
 	font-family: "Trajan Pro", "Times New Roman", Times, serif;
 }
@@ -51,4 +51,14 @@ body h2, h3, p {
 	width: 750px;
 	background: url('images/parchment.png') left top no-repeat;
 	background-size: 100%;
+}
+footer {
+	background-color: #e93b3b;
+	margin: 0;
+	height: 60px;
+	padding-top: 5px;
+}
+footer a {
+	float: left;
+	
 }
