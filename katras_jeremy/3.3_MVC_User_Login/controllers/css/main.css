@@ -15,17 +15,36 @@ body {
 	/*background-image: url('images/brick.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;*/
-	background: url('images/brick.jpg') no-repeat left top;
+	background: #f5d55f url('images/brick.jpg') left top no-repeat;
 }
+/*body {
+	opacity: .8;
+}*/
 
 body a {
+	
 	color: white;
 	stroke: 0.25px;
-	box-shadow: 0 0 1px #b3b1b1;
 	text-decoration: none;
+	padding: 0;
+}
+
+a:hover {
+	text-shadow: 0 0 2px #524f4f;
 }
 
 header {
-	background-color: #dedddd;
-	margin: 0;	
+	background: rgba(97, 141, 216, 0.9);
+	padding: 25px 0 5px;
+	height: 140%;
+	color: #d3a7a7;
+}
+
+h1 {
+	color: #a5edf7;
+	font-family: "Trajan Pro", "Times New Roman", Times, serif;
+}
+
+body h2, h3, p {
+	color: #fbf8c8;
 }
