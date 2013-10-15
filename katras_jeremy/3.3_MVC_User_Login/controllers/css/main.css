@@ -21,12 +21,12 @@ header {
 body {
 	list-style: none;
 	text-align: center;
-	/*background: #f5d55f url('images/brick.jpg') left top no-repeat;*/
+	background-color: #535252;
 }
 
 body a, header a {
 	color: white;
-	stroke: 0.75px;
+	stroke: 0.75px #333;
 	text-decoration: none;
 	padding: 0;
 }
@@ -41,13 +41,14 @@ h1 {
 }
 
 body h2, h3, p {
-	color: #fbf8c8;
+	color: #424040;
+	font-family: "Trajan Pro", "Times New Roman", Times, serif;
 }
 
 #wrapper {
-	padding: 0;
+	padding-top: 10px;
 	margin: 0 auto 0;
 	width: 750px;
-	background: url('images/brick.jpg') left top no-repeat;
+	background: url('images/parchment.png') left top no-repeat;
 	background-size: 100%;
 }
