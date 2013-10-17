@@ -1,5 +1,5 @@
 <h2>Characters by Region</h2>
-<p>Click a region to view which characters originated there.</p>
+<p>Select a region to view which characters originated there.</p>
 
 <?php
 foreach ($rows as $num => $row) {
