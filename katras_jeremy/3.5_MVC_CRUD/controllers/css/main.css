@@ -1,0 +1,68 @@
+/* most of an Eric Myers reset*/
+html, body, div, span, applet, object, iframe,
+/*h1, h2, h3, h4, h5, h6,*/ p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+header {
+	background: rgba(97, 141, 216, 0.9);
+	padding: 25px 0;
+	/*height: 140%;*/
+	color: #d3a7a7;
+	border-bottom: 1px solid #333;
+	margin: 0;
+}
+
+body {
+	list-style: none;
+	text-align: center;
+	background-color: #535252;
+}
+
+body a, header a, #wrapper h3 {
+	color: #ededed;
+	text-shadow: 0 0 2px #524f4f;
+	text-decoration: none;
+	padding: 0;
+}
+
+a:hover {
+	color: white;
+}
+
+h1 {
+	color: #a5edf7;
+	font-family: "Trajan Pro", "Times New Roman", Times, serif;
+}
+
+body h2, h3, h4, p {
+	color: #424040;
+	font-family: "Trajan Pro", "Times New Roman", Times, serif;
+}
+
+#wrapper {
+	padding-bottom: 15px;
+	padding-top: 10px;
+	margin: 0 auto 0;
+	width: 750px;
+	background: url('images/parchment.png') left top no-repeat;
+	background-size: 100%;
+}
+footer {
+	background-color: #e93b3b;
+	margin: -20px, 0;
+	height: 60px;
+	padding-top: 5px;
+}
+footer a {
+	font-family: Georgia;
+	padding: 0 60px;
+}
+footer p {
+	margin: 10px 10px;
+}
