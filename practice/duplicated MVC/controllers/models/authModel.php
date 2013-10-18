@@ -1,5 +1,5 @@
 <?php
-
+//include 'views/authenticate.php';
 class authModel{
 	public function __construct() {
 	
@@ -29,11 +29,22 @@ class authModel{
 		return FALSE;
 	} //checkLogin
 	
-//	public function logout() {
-//		session_start();
-//		unset($_SESSION['userInfo']);
-//		header('Location: ../controllers/views/authenticate.php');
-//		exit;
-//	}
+	public function logout() {
+	//experimental code - remove and replace with 'header' below when done
+	
+	//	$login = new authenticate();
+			
+		session_start();
+		unset($_SESSION['userInfo']);
+		header('Location: ../controllers/index.php'); 
+		
+		//WORKS BUT NO FOOTER SHOWN (i.e. not going through index.php)
+//		$view = new viewModel();
+//		$view->show('authenticate.php');
+	
+	//	$login->login();
+		
+		exit;
+	}
 }
 ?>
