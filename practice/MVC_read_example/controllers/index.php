@@ -7,7 +7,9 @@ $pagename = 'index';
 $view = new viewModel();
 $user = new usersModel();
 
-$view->getView('views/header.inc');
+//if ( empty($_GET["action"])!="authenticate" && empty($_GET["action"])!="logout" ) {
+	$view->getView("views/header.inc");
+//}
 
 if(!empty($_GET["action"])){
 

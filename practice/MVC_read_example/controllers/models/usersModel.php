@@ -39,9 +39,14 @@ class usersModel extends DB{
 	
 	public function authenticate($username='', $password='') {
 		$db = new DB();
-		$sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+		$sql = ("
+			SELECT * 
+			FROM users 
+			WHERE (username = :username)
+			AND (password = MD5(CONCAT(user_salt,:password)))
+		");
 		$st = $db->db->prepare($sql);
-		$st->execute[array(":username"=>$username, ":password"=>$password)];
+		$st->execute(array(":username"=>$username, ":password"=>$password));
 		
 		$num = $st->rowCount();
 		

@@ -1,6 +1,6 @@
 <?php  
 session_start();
-include 'models/protector.php';
+//include 'models/protector.php';
 include 'models/viewModel.php';
 include 'models/usersModel.php';
 
