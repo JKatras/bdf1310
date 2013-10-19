@@ -5,9 +5,9 @@ class usersModel extends DB{
 		
 	}
 	
-	public function getRegions() {
+	public function getRegionList() {
 		$db = new DB();
-		$sql = "select * from regions";
+		$sql = "SELECT * FROM regions ORDER BY name ASC";
 		$st = $db->db->prepare($sql);
 		$st->execute();
 		
@@ -15,14 +15,28 @@ class usersModel extends DB{
 		
 	}
 	
-	public function getOne($id=0) {
+	public function getCharList($regionId) {
 		$db = new DB();
-		$sql = "select * from  where userId = :id";
+		$sql = "SELECT * FROM  gotChar WHERE region = :regionId";
 		$st = $db->db->prepare($sql);
-		$st->execute(array(":id"=>$id));
-		
-		return $st->fetchAll();
+//		$st->execute(array(":regionId"=>$regionId));
+//		$result = $st->fetchAll(\PDO::FETCH_ASSOC);
+//		return $st->fetchAll();
+//		return $result;
+//		return array();
+		try {
+			if($st->execute(array(":regionId"=>$regionId))) {
+				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
+				return $result;	
+			}
+		}
+		catch (\PDOException $e) {
+			echo "There was an error; please try again later";
+			var_dump($e);
+		}
+		return array();
 	}
+
 }
 
 

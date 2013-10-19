@@ -1,12 +1,11 @@
 <?php  
-echo "<center>";
-foreach ($data as $d) {
-	echo " <b>Username:</b>";
-	echo $d["username"];
-	echo "<b>Password:</b>";
-	echo $d["password"];
-	echo "<br>";
+
+foreach ($data as $d => $row) {
+	echo "<h3>Name: </h3>";
+	echo "<h2>${row['charName']}</h2>";
+	echo "<h3>House Allegiance: </h3>";
+	echo "<h2>${row['house']}</h2>";
+
 }
-echo "</center>";
 
 ?>

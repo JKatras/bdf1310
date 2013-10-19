@@ -12,16 +12,16 @@ $user = new usersModel();
 if(!empty($_GET["action"])){
 
 	if($_GET["action"]=="home"){
-		$result = $user->getRegions();
+		$result = $user->getRegionList();
 		$view->getView("views/regionBody.php", $result);
 	}
 	if($_GET["action"]=="details"){
-		$result = $user->getOne($_GET["id"]);
+		$result = $user->getCharList($_GET["regionId"]);
 		$view->getView("views/details.php", $result);
 	}
 }
 	else {
-		$result = $user->getRegions();
+		$result = $user->getRegionList();
 		$view->getView("views/regionBody.php", $result);
 }
 
