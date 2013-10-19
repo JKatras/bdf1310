@@ -51,7 +51,7 @@ body h2, h3, h4, p {
 	margin: 0 auto 0;
 	width: 750px;
 	background: url('images/parchment.png') left top no-repeat;
-	background-size: 100%;
+/*	background-size: 100%; */
 }
 footer {
 	background-color: #e93b3b;

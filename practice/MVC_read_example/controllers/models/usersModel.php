@@ -35,9 +35,30 @@ class usersModel extends DB{
 			var_dump($e);
 		}
 		return array();
+	}//getCharList
+	
+	public function authenticate($username='', $password='') {
+		$db = new DB();
+		$sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+		$st = $db->db->prepare($sql);
+		$st->execute[array(":username"=>$username, ":password"=>$password)];
+		
+		$num = $st->rowCount();
+		
+		if ($num>0) {
+			$_SESSION["loggedin"] = 1;
+		}else {
+			$_SESSION["loggedin"] = 0;
+		}
+		
+		return $st->fetchAll(\PDO::FETCH_COLUMN, 0);
+	}//authenticate
+	
+	public function logout() {
+		$_SESSION["loggedin"] = 0;
 	}
 
-}
+} //class
 
 
 ?>

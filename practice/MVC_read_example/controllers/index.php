@@ -20,10 +20,20 @@ if(!empty($_GET["action"])){
 		$view->getView("views/details.php", $result);
 	}
 	if($_GET["action"]=="login"){
-	
+		$view->getView("views/loginForm.php");
+	}
+	if($_GET["action"]=="authenticate"){
+		$result = $user->authenticate($_POST["username"], $_POST["password"]);
+		if (count($result)>0) {
+			header("location: userMain.php");
+		}else {
+			echo "<p><b>Please check your login and try again</b></p>";
+			$view->getView("views/loginForm.php");
+		}
 	}
 	if($_GET["action"]=="logout"){
-	
+		$user->logout();
+		header("location: index.php");
 	}
 }
 	else {

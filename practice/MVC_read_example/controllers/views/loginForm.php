@@ -1,7 +1,7 @@
 <?php
 	echo '<h2>Member Login</h2>';
 	echo '<h3>Please enter your Username and Password</h3>';
-	echo '<form method="POST" action="">
+	echo '<form method="POST" action="authenticate">
 		<label for="username">Username</label>
 			<input type="text" name="username" id="username" maxlength="25" />
 			<br />
