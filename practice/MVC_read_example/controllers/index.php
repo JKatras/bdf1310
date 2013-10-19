@@ -19,7 +19,7 @@ if(!empty($_GET["action"])){
 	}
 	if($_GET["action"]=="details"){
 		$result = $user->getCharList($_GET["regionId"]);
-		$view->getView("views/details.php", $result);
+		$view->getView("views/charByRegion.php", $result);
 	}
 	if($_GET["action"]=="login"){
 	//	$view->getView("views/loginForm.php");
