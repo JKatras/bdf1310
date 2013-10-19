@@ -11,11 +11,27 @@ $user = new usersModel();
 
 $view->getView("views/header.inc");
 
-if (!empty($_GET["action"])) {
-	
+if(!empty($_GET["action"])){
+
+	if($_GET["action"]=="authenticate"){
+			$result = $user->authenticate($_POST["username"], $_POST["password"]);
+			if (count($result)>0) {
+			//	header("location: userMain.php");
+				$view->getView("views/userView.php", $result);
+			}else {
+			//	$view->getView("views/header.inc");
+				echo "<p><b>Please check your login and try again</b></p>";
+				$view->getView("views/loginForm.php");
+			}
+	}
 }else {
-	
-}
+		$view->getView("views/loginForm.php");
+	}
+//if (!empty($_GET["action"])) {
+//	
+//}else {
+//	
+//}
 
 $view->getView("views/footer.inc");
 ?>

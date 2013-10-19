@@ -46,12 +46,17 @@ body h2, h3, h4, p {
 }
 
 #wrapper {
+	list-style: none;
 	padding-bottom: 15px;
 	padding-top: 10px;
 	margin: 0 auto 0;
 	width: 750px;
 	background: url('images/parchment.png') left top no-repeat;
 /*	background-size: 100%; */
+}
+
+#wrapper ul {
+	list-style: none;
 }
 footer {
 	background-color: #e93b3b;

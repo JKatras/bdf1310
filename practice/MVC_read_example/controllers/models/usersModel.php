@@ -56,9 +56,12 @@ class usersModel extends DB{
 			$_SESSION["loggedin"] = 0;
 		}
 		
-		return $st->fetchAll(\PDO::FETCH_COLUMN, 0);
+		return $st->fetchAll(\PDO::FETCH_ASSOC);
 	}//authenticate
 	
+//	public function getUserInfo() {
+//		
+//	}
 	public function logout() {
 		$_SESSION["loggedin"] = 0;
 	}
