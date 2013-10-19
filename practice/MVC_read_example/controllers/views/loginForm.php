@@ -8,6 +8,9 @@
 		<label for="pass">Password</label>
 			<input type="password" name="password" id="password" maxlength="25" />
 			<br />
-		<input type="submit" value="Login" />
-		</form>';
+		<input type="submit" value="Login"/>
+		</form>
+		<br />';
+	echo '<h4>Not yet a member?</h4>';
+	echo '<a href=?action=create>Register Here</a>';
 ?>

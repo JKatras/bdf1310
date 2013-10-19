@@ -24,7 +24,9 @@ if(!empty($_GET["action"])){
 			$view->getView("views/loginForm.php");
 		}
 	}
-	
+	if ($_GET["action"]=="create") {
+		$view->getView("views/createUserForm.php");
+	}
 	if($_GET["action"]=="update"){
 	
 	}
