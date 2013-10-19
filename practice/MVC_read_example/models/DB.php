@@ -1,12 +1,12 @@
 <?php  
 class DB{
-	public function _construct() {
+	public function __construct() {
 		try {
-		$dsn = "mysql:host=127.0.0.1;port=8889;dbname=bdf1310";
+		$dsn = "mysql:host=127.0.0.1;port=8889;dbname=webapp";
 		$db_user = "root";
 		$db_pass = "root";
 		
-		$this->db = new PDO($dsn, $db_user, $db_pass);
+		$this->db = new \PDO($dsn, $db_user, $db_pass);
 		
 		} catch (PDOException $error) {
 			var_dump($error);

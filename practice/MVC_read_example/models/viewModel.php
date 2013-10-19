@@ -1,6 +1,6 @@
 <?php  
 class viewModel{
-	public function _construct() {
+	public function __construct() {
 	}
 	
 	public function getView($pagename='', $data=array()) {
