@@ -7,7 +7,7 @@ $pagename = 'index';
 $view = new viewModel();
 $user = new usersModel();
 
-//$view->getView('views/header.inc');
+$view->getView('views/header.inc');
 
 if(!empty($_GET["action"])){
 
@@ -19,10 +19,17 @@ if(!empty($_GET["action"])){
 		$result = $user->getCharList($_GET["regionId"]);
 		$view->getView("views/details.php", $result);
 	}
+	if($_GET["action"]=="login"){
+	
+	}
+	if($_GET["action"]=="logout"){
+	
+	}
 }
 	else {
 		$result = $user->getRegionList();
 		$view->getView("views/regionBody.php", $result);
 }
 
+$view->getView("views/footer.inc");
 ?>
