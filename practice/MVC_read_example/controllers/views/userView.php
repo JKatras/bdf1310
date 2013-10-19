@@ -1,6 +1,4 @@
 <?php 
-
-
 foreach ($data as $d) {
 	echo "<h3>Welcome back, ${d['username']}</h3>";
 	echo "<ul>";
