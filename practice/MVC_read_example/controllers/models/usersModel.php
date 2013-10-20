@@ -22,11 +22,7 @@ class usersModel extends DB{
 				WHERE region = :regionId
 		");
 		$st = $db->db->prepare($sql);
-//		$st->execute(array(":regionId"=>$regionId));
-//		$result = $st->fetchAll(\PDO::FETCH_ASSOC);
-//		return $st->fetchAll();
-//		return $result;
-//		return array();
+
 		try {
 			if($st->execute(array(":regionId"=>$regionId))) {
 				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
@@ -81,8 +77,37 @@ class usersModel extends DB{
 	
 	public function logout() {
 		$_SESSION["loggedin"] = 0;
-	}
-
+	}//logout
+	
+	public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){
+		$db = new DB();
+		$sql = ("
+			INSERT INTO users (firstname, lastname, username, password, email, favChar)
+			VALUES (:firstname, :lastname, :username, :password, :email, :favChar)
+		");
+		$st = $db->db->prepare($sql);
+		try {
+			if($st->execute(array(":firstname"=>$firstname,":lastname"=>$lastname,
+			":username"=>$username, ":password"=>$password, ":email"=>$email, 
+			":favChar"=>$favChar))) {
+				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
+				return $result;	
+			}
+		}
+		catch (\PDOException $e) {
+			echo "There was an error; please try again later";
+			var_dump($e);
+		}
+		return array();
+	}//createUser
+	
+	public function updateUser() {
+		
+	}//updateUser
+	
+	public function deleteUser() {
+		
+	}//delete
 } //class
 
 

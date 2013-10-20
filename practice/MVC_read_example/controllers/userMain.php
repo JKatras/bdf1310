@@ -11,7 +11,7 @@ $user = new usersModel();
 
 $view->getView("views/header.inc");
 
-if(!empty($_GET["action"])){
+if(!empty($_GET["action"])) {
 
 	if($_GET["action"]=="authenticate"){
 		$result = $user->authenticate($_POST["username"], $_POST["password"]);
@@ -28,17 +28,26 @@ if(!empty($_GET["action"])){
 	if ($_GET["action"]=="create") {
 		$view->getView("views/createUserForm.php");
 	}
-	if($_GET["action"]=="update"){
-	//	$userId = $_SESSION['userId'];
+	
+	if ($_GET["action"]=="createUser") {
+		$result = $user->createUser($_POST["firstname"], $_POST["lastname"],$_POST["username"], $_POST["password"], $_POST["email"], $_POST["favChar"]);
+		$view->getView("views/userView.php", $result);
+	}
+	
+	if( $_GET["action"]=="update"){
 		$result = $user->getUserDetails($_GET["userId"]);
 		$view->getView("views/updateUserForm.php", $result);
 	}
 	
-	if($_GET["action"]=="delete"){
+	if ($_GET["action"]=="updateUser") {
+		
+	}
+	
+	if ($_GET["action"]=="delete") {
 	
 	}
 	
-	if($_GET["action"]=="logout"){
+	if ($_GET["action"]=="logout") {
 		$user->logout();
 		header("location: index.php");
 	}

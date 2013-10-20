@@ -1,28 +1,31 @@
 <?php
-	foreach ($data as $d) { 
-	echo "<h2>Update Your Information</h2>";
-	echo "${d['userId']}";
-//	echo '<form method="POST" action="?action=updateUser">
-//		<label for="username">Username* </label>
-//			<input type="text" name="username" id="username" maxlength="25" />
-//			<br />
-//		<label for="password">Password* </label>
-//			<input type="password" name="password" id="password" maxlength="25" />
-//			<br />
-//		<label for="email">Email* </label>
-//			<input type="email" name="email" id="email" maxlength="30"/>
-//			<br />
-//		<label for="firstname">First Name </label>
-//			<input type="text" name="firstname" id="firstname" maxlength="25" />
-//			<br />
-//		<label for="lastname">Last Name </label>
-//			<input type="text" name="lastname" id="lastname" maxlength="25" />
-//			<br />
-//		<label for="favchar">Favorite Character </label>
-//			<input type="text" name="favchar" id="favchar" maxlength="40" />
-//			<br />
-//			<input type="submit" value="Sign Me Up" />
-//		</form>';
-	}
+foreach ($data as $d) {
 
+$userId = "${d['userId']}";
+$firstname = "${d['firstname']}";
+$lastname = "${d['lastname']}";
+$email = "${d['email']}";
+$favChar = "${d['favChar']}";
+
+echo '<h2>Update Your Information</h2>';
+echo '<form method="POST" action="?action=updateUser&userId=$userId>"';
+echo '<label for="firstname">First Name </label>
+		<input type="text" name="firstname" id="firstname" value="';
+		echo $firstname; 
+		echo '" maxlength="25" /><br />';
+echo '<label for="lastname">Last Name </label>
+		<input type="text" name="lastname" id="lastname" value="';
+		echo $lastname;
+		echo '" maxlength="25" /><br />';
+echo '<label for="email">Email </label>
+		<input type="email" name="email" id="email" value="';
+		echo $email;
+		echo '" maxlength="30"/><br />';
+echo '<label for="favChar">Favorite Character </label>
+		<input type="text" name="favChar" id="favChar" value="';
+		echo $favChar;
+		echo '" maxlength="40" /><br />';
+echo '<input type="submit" value="Update" />';
+echo '</form>';
+}
 ?>

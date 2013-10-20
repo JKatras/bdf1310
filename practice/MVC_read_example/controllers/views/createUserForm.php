@@ -17,9 +17,9 @@
 		<label for="lastname">Last Name </label>
 			<input type="text" name="lastname" id="lastname" maxlength="25" />
 			<br />
-		<label for="favchar">Favorite Character </label>
-			<input type="text" name="favchar" id="favchar" maxlength="40" />
+		<label for="favChar">Favorite Character </label>
+			<input type="text" name="favChar" id="favChar" maxlength="40" />
 			<br />
-			<input type="submit" value="Sign Me Up" />
+			<input type="submit" value="Register" />
 		</form>';
 ?>
