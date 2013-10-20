@@ -36,10 +36,10 @@ if(!empty($_GET["action"])){
 //			$view->getView("views/loginForm.php");
 //		}
 //	}
-	if($_GET["action"]=="logout"){
-		$user->logout();
-		header("location: index.php");
-	}
+//	if($_GET["action"]=="logout"){
+//		$user->logout();
+//		header("location: index.php");
+//	}
 }
 	else {
 		$result = $user->getRegionList();
