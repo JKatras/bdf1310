@@ -7,8 +7,8 @@ foreach ($data as $d) {
 	echo "<p>Favorite Character: ${d['favChar']}</p>";
 	echo "</ul>";
 	echo "<ul id='options'>";
-	echo "<li><a href=?action=update&id=${d['userId']}>Update Profile</a></li>";
-	echo "<li><a href=?action=delete&id=${d['userId']}>Delete Profile</a></li>";
+	echo "<li><a href=?action=update&userId=${d['userId']}>Update Profile</a></li>";
+	echo "<li><a href=?action=delete&userId=${d['userId']}>Delete Profile</a></li>";
 	echo "<li><a href=?action=logout>Log Out</a></li>";
 	echo "</ul>";
 }

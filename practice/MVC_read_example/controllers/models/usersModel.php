@@ -17,7 +17,10 @@ class usersModel extends DB{
 	
 	public function getCharList($regionId) {
 		$db = new DB();
-		$sql = "SELECT charName, house FROM  gotChar WHERE region = :regionId";
+		$sql = ("SELECT charName, house 
+				FROM  gotChar 
+				WHERE region = :regionId
+		");
 		$st = $db->db->prepare($sql);
 //		$st->execute(array(":regionId"=>$regionId));
 //		$result = $st->fetchAll(\PDO::FETCH_ASSOC);
@@ -74,9 +77,8 @@ class usersModel extends DB{
 			var_dump($e);
 		}
 		return array();
+	}//getUserDetails
 	
-
-	}
 	public function logout() {
 		$_SESSION["loggedin"] = 0;
 	}

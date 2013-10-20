@@ -18,6 +18,7 @@ if(!empty($_GET["action"])){
 		if (count($result)>0) {
 		//	header("location: userMain.php");
 			$view->getView("views/userView.php", $result);
+			
 		}else {
 		//	$view->getView("views/header.inc");
 			echo "<p><b>Please check your login and try again</b></p>";
@@ -28,8 +29,8 @@ if(!empty($_GET["action"])){
 		$view->getView("views/createUserForm.php");
 	}
 	if($_GET["action"]=="update"){
-		$_SESSION['userId'] = $userId;
-		$result = $user->getUserDetails($_GET['userId']);
+	//	$userId = $_SESSION['userId'];
+		$result = $user->getUserDetails($_GET["userId"]);
 		$view->getView("views/updateUserForm.php", $result);
 	}
 	

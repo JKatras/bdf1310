@@ -1,7 +1,7 @@
 <?php
 	foreach ($data as $d) { 
-	echo '<h2>Update Your Information</h2>';
-	echo '<p>${d["userId"]}</p>';
+	echo "<h2>Update Your Information</h2>";
+	echo "${d['userId']}";
 //	echo '<form method="POST" action="?action=updateUser">
 //		<label for="username">Username* </label>
 //			<input type="text" name="username" id="username" maxlength="25" />
