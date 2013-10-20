@@ -31,8 +31,11 @@ if(!empty($_GET["action"])) {
 	
 	if ($_GET["action"]=="createUser") {
 		$result = $user->createUser($_POST["firstname"], $_POST["lastname"],$_POST["username"], $_POST["password"], $_POST["email"], $_POST["favChar"]);
-		$view->getView("views/userView.php", $result);
-	}
+//		$result = $user->getUserDetails($_GET["userId"]);
+		if (count($result)>0) {
+			$view->getView("views/userView.php", $result);
+		}
+	}//createUser
 	
 	if( $_GET["action"]=="update"){
 		$result = $user->getUserDetails($_GET["userId"]);

@@ -1,4 +1,4 @@
-<?php  
+<?php
 	echo '<h2>New Member Registration</h2>';
 	echo '<p>Fields marked with (*) are required</p>';
 	echo '<form method="POST" action="?action=createUser">

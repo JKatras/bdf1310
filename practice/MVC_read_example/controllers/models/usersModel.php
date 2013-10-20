@@ -79,26 +79,60 @@ class usersModel extends DB{
 		$_SESSION["loggedin"] = 0;
 	}//logout
 	
-	public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){
+//	THIS WORKS BUT NEEDS HASH/SALT FUNCTIONS	
+//	public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){
+//		$db = new DB();
+//		$sql = ("
+//			INSERT INTO users (firstname, lastname, username, password, email, favChar)
+//			VALUES (:firstname, :lastname, :username, :password, :email, :favChar)
+//		");
+//		$st = $db->db->prepare($sql);
+//		try {
+//			if($st->execute(array(":firstname"=>$firstname,":lastname"=>$lastname,
+//			":username"=>$username, ":password"=>$password, ":email"=>$email, 
+//			":favChar"=>$favChar))) {
+//				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
+//				return $result;	
+//			}
+//		}
+//		
+//		catch (\PDOException $e) {
+//			echo "There was an error; please try again later";
+//			var_dump($e);
+//		}
+//		return array();
+//	}//createUser
+
+	//TRIAL CODE
+		public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){
+		 //Generating a salt and MD5 hash
+   		$salt = mcrypt_create_iv(8, MCRYPT_DEV_URANDOM);  
+ 		$password=md5($salt.$password);
+ 		
 		$db = new DB();
 		$sql = ("
-			INSERT INTO users (firstname, lastname, username, password, email, favChar)
-			VALUES (:firstname, :lastname, :username, :password, :email, :favChar)
+			INSERT INTO users (firstname, lastname, username, password, email, favChar, user_salt)
+			VALUES (:firstname, :lastname, :username, :password, :email, :favChar, :salt)
 		");
 		$st = $db->db->prepare($sql);
-		try {
-			if($st->execute(array(":firstname"=>$firstname,":lastname"=>$lastname,
-			":username"=>$username, ":password"=>$password, ":email"=>$email, 
-			":favChar"=>$favChar))) {
-				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
-				return $result;	
+		if($st->execute(array(":firstname"=>$firstname,":lastname"=>$lastname, ":username"=>$username,
+		":password"=>$password, ":email"=>$email, 
+		":favChar"=>$favChar, ":salt"=>$salt))) {
+		
+			$num = $st->rowCount();
+		
+			if ($num>0) {
+			$_SESSION["loggedin"] = 1;
+			}else {
+			$_SESSION["loggedin"] = 0;
 			}
-		}
-		catch (\PDOException $e) {
-			echo "There was an error; please try again later";
-			var_dump($e);
-		}
-		return array();
+			
+			return $st->fetchAll(\PDO::FETCH_ASSOC);
+//			return $result;	
+		}//if($st->execute...)
+		
+	//	return array();
+	
 	}//createUser
 	
 	public function updateUser() {
