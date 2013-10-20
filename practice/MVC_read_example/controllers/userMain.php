@@ -8,6 +8,7 @@ $pagename='userMain';
 
 $view = new viewModel();
 $user = new usersModel();
+$_SESSION['userId'] = $userId;
 
 $view->getView("views/header.inc");
 
@@ -28,7 +29,9 @@ if(!empty($_GET["action"])){
 		$view->getView("views/createUserForm.php");
 	}
 	if($_GET["action"]=="update"){
-	
+//		$_SESSION['userId'] = $userId;
+		$result = $user->getUserDetails($_GET[$userId]);
+		$view->getView("views/updateUserForm.php", $result);
 	}
 	
 	if($_GET["action"]=="delete"){

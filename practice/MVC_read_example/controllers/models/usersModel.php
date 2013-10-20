@@ -59,9 +59,24 @@ class usersModel extends DB{
 		return $st->fetchAll(\PDO::FETCH_ASSOC);
 	}//authenticate
 	
-//	public function getUserInfo() {
-//		
-//	}
+	public function getUserDetails($userId) {
+		$db = new DB();
+		$sql = "SELECT * FROM users WHERE userId = :userId";
+		$st = $db->db->prepare($sql);
+		try {
+			if($st->execute(array(":userId"=>$userId))) {
+				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
+				return $result;	
+			}
+		}
+		catch (\PDOException $e) {
+			echo "There was an error; please try again later";
+			var_dump($e);
+		}
+		return array();
+	
+
+	}
 	public function logout() {
 		$_SESSION["loggedin"] = 0;
 	}
