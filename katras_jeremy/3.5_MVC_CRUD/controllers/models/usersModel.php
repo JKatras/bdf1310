@@ -36,6 +36,7 @@ class usersModel extends DB{
 	}//getCharList
 	
 	public function authenticate($username='', $password='') {
+	if(!empty($username) && !empty($password)){
 		$db = new DB();
 		$sql = ("
 			SELECT * 
@@ -55,6 +56,10 @@ class usersModel extends DB{
 		}
 		
 		return $st->fetchAll(\PDO::FETCH_ASSOC);
+	}else {
+		$error = '<p><b>Please check the required fields and try again</b></p>';
+		return $error;
+	}
 	}//authenticate
 	
 	public function getUserDetails($userId) {
@@ -78,32 +83,42 @@ class usersModel extends DB{
 		$_SESSION["loggedin"] = 0;
 	}//logout
 
-	public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){
-		//******probably move this to userMain for more conditionals*****
-		if (!empty($username) && !empty($password) && !empty($email)) {
-			
-		 //Generating a salt and MD5 hash
-   		$salt = mcrypt_create_iv(8, MCRYPT_DEV_URANDOM);  
- 		$password=md5($salt.$password);
- 		
-		$db = new DB();
-		$sql = ("
-			INSERT INTO users (firstname, lastname, username, password, email, favChar, user_salt)
-			VALUES (:firstname, :lastname, :username, :password, :email, :favChar, :salt)
-		");
-		$st = $db->db->prepare($sql);
-		if($st->execute(array(":firstname"=>$firstname,":lastname"=>$lastname, ":username"=>$username,
-		":password"=>$password, ":email"=>$email, 
-		":favChar"=>$favChar, ":salt"=>$salt))) {
-			$result = $st->fetchAll(\PDO::FETCH_ASSOC);
-			return $result;	
-		}//if($st->execute...)
+	public function createUser($firstname='', $lastname='', $username='', 
+	$password='', $email='', $favChar=''){		
+	if (!empty($username) && !empty($password) && !empty($email)){	
+		$db = new DB();	
+		$userCheck = "SELECT username FROM users WHERE username = :username";
+		$st = $db->db->prepare($userCheck);
+		$st->execute(array(":username"=>$username));
+		$num = $st->rowCount();
 		
-		return array();
-		
+		if ($num>0) {
+			$error = '<p><b>This Username already exists</b></p>';
+			return $error;
 		}else {
-			echo '<h3>Please check required fields and try again</h3>';
-		}
+			 //Generating a salt and MD5 hash
+   			$salt = mcrypt_create_iv(8, MCRYPT_DEV_URANDOM);  
+ 			$password=md5($salt.$password);
+ 			
+			$sql = ("
+				INSERT INTO users (firstname, lastname, username, password, email, favChar, user_salt)
+				VALUES (:firstname, :lastname, :username, :password, :email, :favChar, :salt)
+			");
+			$st = $db->db->prepare($sql);
+			if($st->execute(array(":firstname"=>$firstname,":lastname"=>$lastname, ":username"=>$username,
+			":password"=>$password, ":email"=>$email, 
+			":favChar"=>$favChar, ":salt"=>$salt))) {
+				$result = $st->fetchAll(\PDO::FETCH_ASSOC);
+				return $result;	
+			}//if($st->execute...)
+			
+		}//if error
+		return array();
+	}//if !empty...
+	else {
+		$error = '<p><b>Please check the required fields and try again</b></p>';
+		return $error;
+	}
 	}//createUser
 	
 	public function updateUser($userId, $firstname, $lastname, $email, $favChar) {
