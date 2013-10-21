@@ -8,7 +8,9 @@ $email = "${d['email']}";
 $favChar = "${d['favChar']}";
 
 echo '<h2>Update Your Information</h2>';
-echo '<form method="POST" action="?action=updateUser&userId=$userId>"';
+echo '<form method="POST" action="?action=updateUser&userId=';
+		echo $userId;
+		echo '">';
 echo '<label for="firstname">First Name </label>
 		<input type="text" name="firstname" id="firstname" value="';
 		echo $firstname; 

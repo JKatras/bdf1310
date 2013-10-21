@@ -25,21 +25,6 @@ if(!empty($_GET["action"])){
 	//	$view->getView("views/loginForm.php");
 		header("location: userMain.php");
 	}
-//	if($_GET["action"]=="authenticate"){
-//		$result = $user->authenticate($_POST["username"], $_POST["password"]);
-//		if (count($result)>0) {
-//		//	header("location: userMain.php");
-//			$view->getView("views/userView.php", $result);
-//		}else {
-//		//	$view->getView("views/header.inc");
-//			echo "<p><b>Please check your login and try again</b></p>";
-//			$view->getView("views/loginForm.php");
-//		}
-//	}
-//	if($_GET["action"]=="logout"){
-//		$user->logout();
-//		header("location: index.php");
-//	}
 }
 	else {
 		$result = $user->getRegionList();
