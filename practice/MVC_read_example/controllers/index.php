@@ -2,14 +2,10 @@
 include('models/viewModel.php');
 include('models/usersModel.php');
 
-$pagename = 'index';
-
 $view = new viewModel();
 $user = new usersModel();
 
-//if ( ($_GET["action"])!="authenticate" && ($_GET["action"])!="logout" ) {
-	$view->getView("views/header.inc");
-//}
+$view->getView("views/header.inc");
 
 if(!empty($_GET["action"])){
 
@@ -22,7 +18,6 @@ if(!empty($_GET["action"])){
 		$view->getView("views/charByRegion.php", $result);
 	}
 	if($_GET["action"]=="login"){
-	//	$view->getView("views/loginForm.php");
 		header("location: userMain.php");
 	}
 }

@@ -80,7 +80,7 @@ class usersModel extends DB{
 
 	public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){
 		//******probably move this to userMain for more conditionals*****
-		if (!empty($username) && !empty($password) && !empty($email)) {
+	//	if (!empty($username) && !empty($password) && !empty($email)) {
 			
 		 //Generating a salt and MD5 hash
    		$salt = mcrypt_create_iv(8, MCRYPT_DEV_URANDOM);  
@@ -101,9 +101,9 @@ class usersModel extends DB{
 		
 		return array();
 		
-		}else {
-			echo '<h3>Please check required fields and try again</h3>';
-		}
+//		}else {
+//			echo '<h3>Please check required fields and try again</h3>';
+//		}
 	}//createUser
 	
 	public function updateUser($userId, $firstname, $lastname, $email, $favChar) {
