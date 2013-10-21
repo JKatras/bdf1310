@@ -1,36 +1,35 @@
-<?php
+<?php  
+include('models/viewModel.php');
+include('models/usersModel.php');
 
-include "models/regionModel.php";
-include "models/viewModel.php";
-include "models/authModel.php";
-//include "views/authenticate.php";
+$pagename = 'index';
 
-$model = new regionModel();
-$rows = $model->getRegions();
 $view = new viewModel();
-$auth = new authModel();
+$user = new usersModel();
 
-$view->show('header.inc');
+//if ( ($_GET["action"])!="authenticate" && ($_GET["action"])!="logout" ) {
+	$view->getView("views/header.inc");
+//}
 
 if(!empty($_GET["action"])){
-	
+
+	if($_GET["action"]=="home"){
+		$result = $user->getRegionList();
+		$view->getView("views/regionBody.php", $result);
+	}
 	if($_GET["action"]=="details"){
-		$result = $model->getCharDetails($_GET["id"]);
-		$view->show("regionDetails.php", $result);
+		$result = $user->getCharList($_GET["regionId"]);
+		$view->getView("views/charByRegion.php", $result);
 	}
 	if($_GET["action"]=="login"){
-		$view->show("authenticate.php");
-//		$authView = new authenticate();
-//		$authView->login();
+	//	$view->getView("views/loginForm.php");
+		header("location: userMain.php");
 	}
-	if($_GET["action"]=="logout"){
-		$auth->logout();
-	//	header("location: views/authenticate.php");
-	}
-}else {
-	$view->regionListView($rows);
-	}
+}
+	else {
+		$result = $user->getRegionList();
+		$view->getView("views/regionBody.php", $result);
+}
 
-
-$view->show('footer.inc');
+$view->getView("views/footer.inc");
 ?>

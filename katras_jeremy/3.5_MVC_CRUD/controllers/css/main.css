@@ -12,7 +12,6 @@ html, body, div, span, applet, object, iframe,
 header {
 	background: rgba(97, 141, 216, 0.9);
 	padding: 25px 0;
-	/*height: 140%;*/
 	color: #d3a7a7;
 	border-bottom: 1px solid #333;
 	margin: 0;
@@ -28,7 +27,7 @@ body a, header a, #wrapper h3 {
 	color: #ededed;
 	text-shadow: 0 0 2px #524f4f;
 	text-decoration: none;
-	padding: 0;
+
 }
 
 a:hover {
@@ -46,14 +45,20 @@ body h2, h3, h4, p {
 }
 
 #wrapper {
-	padding-bottom: 15px;
+	list-style: none;
+	padding-bottom: 25px;
 	padding-top: 10px;
 	margin: 0 auto 0;
 	width: 750px;
 	background: url('images/parchment.png') left top no-repeat;
-	background-size: 100%;
+/*	background-size: 100%; */
+}
+
+#wrapper ul {
+	list-style: none;
 }
 footer {
+	border-top: 1px solid #333;
 	background-color: #e93b3b;
 	margin: -20px, 0;
 	height: 60px;
