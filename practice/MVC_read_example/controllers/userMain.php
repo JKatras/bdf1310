@@ -26,18 +26,16 @@ if(!empty($_GET["action"])) {
 		$view->getView("views/createUserForm.php");
 	}
 	
-	else if ($_GET["action"]=="createUser" && !empty($username) && !empty($password) && !empty($email)) 
-	{
-		$result = $user->createUser($_POST["firstname"], $_POST["lastname"],$_POST["username"], $_POST["password"], $_POST["email"], $_POST["favChar"]);
-//		$result = $user->getUserDetails($_GET["userId"]);
-		$view->getView("views/userView.php", $result);
-//		header("location: userMain.php");
-//		$view->getView("views/userView.php");
+	else if ($_GET["action"]=="createUser") {
+		if (!empty($username) && !empty($password) && !empty($email)) {
+			$result = $user->createUser($_POST["firstname"], $_POST["lastname"],$_POST["username"], $_POST["password"], $_POST["email"], $_POST["favChar"]);
+			$view->getView("views/userView.php", $result);
+		}else {
+				echo "<b><p>Please check required fields and try again</p></b>";
+				$view->getView("views/createUserForm.php");
+		}
 	}//createUser
-	else {
-		echo "<b><p>Please check required fields and try again</p></b>";
-		$view->getView("views/createUserForm.php");
-	}
+	
 	
 	if( $_GET["action"]=="update"){
 		$result = $user->getUserDetails($_GET["userId"]);
