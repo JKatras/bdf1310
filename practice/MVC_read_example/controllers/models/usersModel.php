@@ -36,6 +36,7 @@ class usersModel extends DB{
 	}//getCharList
 	
 	public function authenticate($username='', $password='') {
+	if(!empty($username) && !empty($password)){
 		$db = new DB();
 		$sql = ("
 			SELECT * 
@@ -55,6 +56,10 @@ class usersModel extends DB{
 		}
 		
 		return $st->fetchAll(\PDO::FETCH_ASSOC);
+	}else {
+		$error = '<p><b>Please check the required fields and try again</b></p>';
+		return $error;
+	}
 	}//authenticate
 	
 	public function getUserDetails($userId) {

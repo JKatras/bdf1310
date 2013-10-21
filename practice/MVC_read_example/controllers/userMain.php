@@ -15,10 +15,15 @@ if(!empty($_GET["action"])) {
 
 	if($_GET["action"]=="authenticate"){
 		$result = $user->authenticate($_POST["username"], $_POST["password"]);
-		if (count($result)>0) {
-			$view->getView("views/userView.php", $result);
+		if ($result ==array()) {
+			if (count($result)>0) {
+				$view->getView("views/userView.php", $result);
+			}else {
+				echo "<p><b>Please check your login and try again</b></p>";
+				$view->getView("views/loginForm.php");
+			}
 		}else {
-			echo "<p><b>Please check your login and try again</b></p>";
+			echo $result;
 			$view->getView("views/loginForm.php");
 		}
 	}
