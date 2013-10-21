@@ -36,25 +36,31 @@ class usersModel extends DB{
 	}//getCharList
 	
 	public function authenticate($username='', $password='') {
-		$db = new DB();
-		$sql = ("
-			SELECT * 
-			FROM users 
-			WHERE (username = :username)
-			AND (password = MD5(CONCAT(user_salt,:password)))
-		");
-		$st = $db->db->prepare($sql);
-		$st->execute(array(":username"=>$username, ":password"=>$password));
+		if(!empty($username) && !empty($password)){
+			$db = new DB();
+			$sql = ("
+				SELECT * 
+				FROM users 
+				WHERE (username = :username)
+				AND (password = MD5(CONCAT(user_salt,:password)))
+			");
+			$st = $db->db->prepare($sql);
+			$st->execute(array(":username"=>$username, ":password"=>$password));
+			
+			$num = $st->rowCount();
+			
+			if ($num>0) {
+				$_SESSION["loggedin"] = 1;
+			}else {
+				$_SESSION["loggedin"] = 0;
+			}
+			
+			return $st->fetchAll(\PDO::FETCH_ASSOC);
 		
-		$num = $st->rowCount();
-		
-		if ($num>0) {
-			$_SESSION["loggedin"] = 1;
 		}else {
-			$_SESSION["loggedin"] = 0;
-		}
-		
-		return $st->fetchAll(\PDO::FETCH_ASSOC);
+			$error = '<p><b>Please check the required fields and try again</b></p>';
+			return $error;
+		}	
 	}//authenticate
 	
 	public function getUserDetails($userId) {

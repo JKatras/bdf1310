@@ -54,8 +54,8 @@ class usersModel extends DB{
 		}else {
 			$_SESSION["loggedin"] = 0;
 		}
-		
 		return $st->fetchAll(\PDO::FETCH_ASSOC);
+	
 	}else {
 		$error = '<p><b>Please check the required fields and try again</b></p>';
 		return $error;
