@@ -78,7 +78,9 @@ class usersModel extends DB{
 		$_SESSION["loggedin"] = 0;
 	}//logout
 
-	public function createUser($firstname='', $lastname='', $username='', $password='', $email='', $favChar=''){		
+	public function createUser($firstname='', $lastname='', $username='', 
+	$password='', $email='', $favChar=''){		
+	if (!empty($username) && !empty($password) && !empty($email)){	
 		$db = new DB();	
 		$userCheck = "SELECT username FROM users WHERE username = :username";
 		$st = $db->db->prepare($userCheck);
@@ -107,7 +109,11 @@ class usersModel extends DB{
 			
 		}//if error
 		return array();
-
+	}//if !empty...
+	else {
+		$error = '<p><b>Please check the required fields and try again</b></p>';
+		return $error;
+	}
 	}//createUser
 	
 	public function updateUser($userId, $firstname, $lastname, $email, $favChar) {

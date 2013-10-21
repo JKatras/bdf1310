@@ -27,13 +27,13 @@ if(!empty($_GET["action"])) {
 	}
 	
 	else if ($_GET["action"]=="createUser") {
-//		if (!empty($username) && !empty($password) && !empty($email)) {
 			$result = $user->createUser($_POST["firstname"], $_POST["lastname"],$_POST["username"], $_POST["password"], $_POST["email"], $_POST["favChar"]);
-			$view->getView("views/userView.php", $result);
-//		}else {
-//				echo "<b><p>Please check required fields and try again</p></b>";
-//				$view->getView("views/createUserForm.php");
-//		}
+			if ($result == array()){
+				$view->getView("views/userView.php", $result);
+			}else {
+				echo $result;
+				$view->getView("views/createUserForm.php");
+			}
 	}//createUser
 	
 	
@@ -45,9 +45,8 @@ if(!empty($_GET["action"])) {
 	if ($_GET["action"]=="updateUser") {
 		$result = $user->updateUser($_GET["userId"], $_POST["firstname"], $_POST["lastname"],
 		$_POST["email"], $_POST["favChar"]);
-//		if (!empty($result)) {
-			$view->getView("views/userView.php", $result);
-//		}
+		$view->getView("views/userView.php", $result);
+
 		
 	}//updateUser
 	
