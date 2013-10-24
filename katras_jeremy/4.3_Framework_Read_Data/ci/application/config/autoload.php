@@ -64,7 +64,7 @@ $autoload['libraries'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','localhost:8888/katras_jeremy/4.3_Framework_Read_Data/ci/');
+$autoload['helper'] = array('url');
 
 
 /*
