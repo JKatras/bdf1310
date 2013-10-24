@@ -1,9 +1,9 @@
-<?php ob_start()?>
+<?php ob_start();?>
 <!DOCTYPE html>
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" href="<?php base_url() ?>public/css/main.css" type="text/css" />
+<link rel="stylesheet" href="public/css/main.css" type="text/css" />
 </head>
 <body>
 <header>
